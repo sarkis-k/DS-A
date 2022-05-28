@@ -53,3 +53,5 @@ q.put("n23")
 print(q.get())
 print(q.get())
 
+print(q.qsize())
+
