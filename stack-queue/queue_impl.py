@@ -1,57 +1,56 @@
+# Queue implementation using singly Linked-List
+
+# Single Node holding data and next
+class Node:
+    def __init__(self, data=None) -> None:
+        self.data = data
+        self.next = None
 
 
-# class Node:
-#     def __init__(self, data) -> None:
-#         self.data = data
-#         self.next = None
+# Queue class with basic functions is_empty,peek, add, remove
+class Queue:
+    def __init__(self) -> None:
+        self.head = None
+        self.tail = None
 
-# class Queue:
-#     def __init__(self) -> None:
-        
+    def is_empty(self) -> bool:
+        return self.head == None
 
-# n1 = Node("n1")
-# n2 = Node("n2")
-# n3 = Node("n3")
+    def peek(self) -> int:
+        return self.head.data
 
-# n1.next = n2
-# n2.next = n3
+    def add(self, data: int) -> None:
+        node = Node(data)
+        if self.tail == None:
+            self.head = node
+            self.tail = node
+            return
+        self.tail.next = node
+        self.tail = node
 
-# thisval = n1
-
-# while thisval:
-#     print(thisval.data)
-#     thisval = thisval.next
-
-# # Queue using list
-
-# queue = []
-
-# # adding ellement to queue 
-# queue.append("1st")
-# queue.append("2nd")
-
-# print(queue)
-
-# # removing 
-# queue.pop(0)
-
-# print(queue)
-
-# queue using Queue lib
-
-from queue import Queue
-
-q = Queue(maxsize=5)
-
-print(q.qsize())
+    def remove(self) -> int:
+        if self.is_empty():
+            return None
+        temp = self.head
+        self.head = temp.next
+        if self.head == None:
+            self.tail = None
+        return temp.data
 
 
-q.put("n1")
-q.put(5)
-q.put("n23")
+q = Queue()
 
-print(q.get())
-print(q.get())
+print(q.is_empty())
 
-print(q.qsize())
+q.add(5)
+q.add(10)
+q.add(24)
 
+print(q.peek())
+
+print(q.is_empty())
+
+print(q.remove())
+print(q.remove())
+print(q.remove())
+print(q.is_empty())
