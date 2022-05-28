@@ -38,19 +38,25 @@ class Queue:
         return temp.data
 
 
+# initiating queue
 q = Queue()
-
+# checking if queue is empty
 print(q.is_empty())
 
+# adding elements to the queue
 q.add(5)
 q.add(10)
 q.add(24)
 
+# checking the peek of the list
 print(q.peek())
 
-print(q.is_empty())
 
+# removing an item from the list
+print(q.remove())
+print(q.peek())
 print(q.remove())
 print(q.remove())
-print(q.remove())
+
+# checking is list is empty (should be)
 print(q.is_empty())
