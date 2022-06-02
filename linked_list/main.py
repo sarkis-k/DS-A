@@ -1,4 +1,4 @@
-from singly import LinkedList
+from singly_linked import LinkedList
 
 llist = LinkedList()
 
