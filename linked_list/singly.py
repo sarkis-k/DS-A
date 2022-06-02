@@ -1,5 +1,6 @@
 from node import Node
 
+
 class LinkedList(object):
     def __init__(self):
         self.head = None
@@ -14,6 +15,7 @@ class LinkedList(object):
             count += 1
             current = current.get_next()
         return count
+
     def __str__(self):
         current = self.head
         output = ""
@@ -21,3 +23,47 @@ class LinkedList(object):
             output += str(current) + " -> "
             current = current.get_next()
         return output
+
+    def pop(self):
+        if self.head:
+            self.head = self.head.get_next()
+        else:
+            raise IndexError("Unable to pop from empty list")
+
+    def contains(self, value):
+        found = False
+        current = self.head
+        while current and not found:
+            if current.get_data() == value:
+                found = True
+            else:
+                current = current.get_next()
+        return found
+
+    def delete(self, value):
+        current = self.head
+        prev = None
+        while current:
+            if current.get_data() == value:
+                if prev:
+                    prev.set_next(current.get_next())
+                else:
+                    self.head = current.get_next()
+            else:
+                prev = current
+            current = current.get_next()
+
+    def push(self, value):
+        node = Node(value)
+        node.set_next(self.head)
+        self.set_head(node)
+
+    def append(self, value):
+        node = Node(value)
+        current = self.head
+        if not current:
+            self.head = node
+            return
+        while current.get_next():
+            current = current.get_next()
+        current.set_next(node)
