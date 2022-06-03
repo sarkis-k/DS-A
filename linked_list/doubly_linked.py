@@ -39,4 +39,16 @@ class DoublyLinkedList(LinkedList):
                     return temp.data
                 temp = temp.get_next()
 
-    
+    def insert_head(self, value):
+        node = DoubleNode(value)
+        node.set_next(self.head)
+
+        if self.head:
+            self.head.prev = node
+            self.head = node
+            node.prev = None
+        else:
+            self.head = node
+            self.tail = node
+            node.prev = None
+
