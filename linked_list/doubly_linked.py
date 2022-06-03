@@ -17,5 +17,13 @@ class DoublyLinkedList(LinkedList):
         else:
             raise IndexError("Unable to pop from empty list")
 
-
-    def 
+    def remove_tail(self):
+        if not self.tail:
+            raise IndexError("List is empty")
+        else:
+            temp = self.tail
+            temp.prev.next = None
+            self.tail = temp.prev
+            temp.prev = None
+            return temp.data
+        
