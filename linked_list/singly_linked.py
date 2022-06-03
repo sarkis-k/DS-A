@@ -67,3 +67,16 @@ class LinkedList(object):
         while current.get_next():
             current = current.get_next()
         current.set_next(node)
+
+    def insert_value_after(self, after_value, insert_value):
+        current = self.head
+        while current:
+            if current.get_data() == after_value:
+                next_node = current.get_next()
+                new_node = Node(insert_value)
+                current.set_next(new_node)
+                new_node.set_next(next_node)
+                return
+            current = current.get_next()
+
+    
