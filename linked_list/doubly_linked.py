@@ -78,4 +78,15 @@ class DoublyLinkedList(LinkedList):
                 return
             current = current.get_next()
 
-    
+    def insert_value_before(self, before_value, insert_value):
+        current = self.head
+        while current:
+            if current.get_data() == before_value:
+                new_node = DoubleNode(insert_value)
+                current.previous.next = new_node
+                new_node.set_previous(current.get_previous())
+                new_node.set_next(current)
+                current.set_previous(new_node)
+                return
+            current = current.get_next()
+
