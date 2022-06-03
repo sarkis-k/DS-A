@@ -24,7 +24,7 @@ class LinkedList(object):
             current = current.get_next()
         return output
 
-    def pop(self):
+    def pop_head(self):
         if self.head:
             self.head = self.head.get_next()
         else:
@@ -53,12 +53,12 @@ class LinkedList(object):
                 prev = current
             current = current.get_next()
 
-    def push(self, value):
+    def insert_head(self, value):
         node = Node(value)
         node.set_next(self.head)
         self.set_head(node)
 
-    def append(self, value):
+    def insert_end(self, value):
         node = Node(value)
         current = self.head
         if not current:
