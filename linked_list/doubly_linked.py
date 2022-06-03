@@ -52,3 +52,19 @@ class DoublyLinkedList(LinkedList):
             self.tail = node
             node.prev = None
 
+    def insert_end(self, value):
+        node = DoubleNode(value)
+        node.set_previous(self.tail)
+
+        if not self.tail:
+            self.head = node
+            self.tail = node
+            node.set_next(None)
+        else:
+            self.tail.next = node
+            node.set_next(None)
+            self.tail = node
+
+
+    # def insert_value(self, value):
+    #     pass
