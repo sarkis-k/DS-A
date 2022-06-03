@@ -18,26 +18,74 @@ class DoublyLinkedList(LinkedList):
             raise IndexError("Unable to pop from empty list")
 
     def remove_tail(self):
-        if not self.tail:
-            raise IndexError("List is empty")
-        else:
-            temp = self.tail
-            temp.prev.next = None
-            self.tail = temp.prev
-            temp.prev = None
-            return temp.data
+        if self.head:
+            if not self.head.next:
+                self.head = None
+            else:
+                temp = self.head
+                while temp.next.next:
+                    temp = temp.next
+                lastNode = temp.next
+                temp.next = None
+                lastNode = None
+        # if self.tail:
+        #     temp = self.tail
+        #     temp.prev.next = None
+        #     self.tail = temp.prev
+        #     temp.prev = None
+        #     return temp.data
+        # else:
+        #     raise IndexError("List is empty")
+        # if not self.tail:
+        #     raise IndexError("List is empty")
+        # else:
+        #     self.tail.data = None
+        #     self.tail.prev.next = None
+        #     self.tail.prev = None
+        #     temp = self.tail
+        #
+        #
+        #     temp = self.tail
+        #     self.tail.prev.next = None
+        #     self.tail = temp.prev
+            # temp.prev = None
+            # return temp.data
 
     def remove_value(self, value):
-        if not self.head:
-            raise IndexError("List is empty")
+
+        current = self.head
+        node_deleted = False
+        if current is None:
+            node_deleted = False
+
+        elif current.data == value:
+            self.head = current.next
+            self.head.prev = None
+            node_deleted = True
+
+        elif self.tail.data == value:
+            self.tail = self.tail.prev
+            self.tail.next = None
+            node_deleted = True
+
         else:
-            temp = self.head
-            while temp:
-                if temp.data == value:
-                    temp.prev.next = temp.next
-                    temp.next.prev = temp.prev
-                    return temp.data
-                temp = temp.get_next()
+            while current:
+                if current.data == value:
+                    current.prev.next = current.next
+                    current.next.prev = current.prev
+                    node_deleted = True
+                current = current.next
+        # if not self.head:
+        #     raise IndexError("List is empty")
+        # else:
+        #     temp = self.head
+        #     while temp:
+        #         print(temp.data)
+        #         if temp.data == value:
+        #             temp.prev.next = temp.next
+        #             temp.next.prev = temp.prev
+        #             return temp.data
+        #         temp = temp.get_next()
 
     def insert_head(self, value):
         node = DoubleNode(value)
