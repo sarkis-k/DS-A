@@ -80,4 +80,11 @@ class LinkedList(object):
                 return
             current = current.get_next()
 
-    
+    def find_mid(self) -> Node:
+        slow = self.head
+        fast = self.head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+        return slow
+
