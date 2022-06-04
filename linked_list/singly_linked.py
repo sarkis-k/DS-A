@@ -22,6 +22,7 @@ class LinkedList(object):
         while current:
             output += str(current) + " -> "
             current = current.get_next()
+        output += "NULL"
         return output
 
     def pop_head(self):
