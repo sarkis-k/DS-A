@@ -138,3 +138,13 @@ class DoublyLinkedList(LinkedList):
                 return
             current = current.get_next()
 
+    def reverse(self):
+        previous = None
+        current = self.head
+        while current:
+            next_node = current.next
+            current.next = previous
+            current.prev = next_node
+            previous = current
+            current = next_node
+        self.head = previous
