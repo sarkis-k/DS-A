@@ -38,7 +38,7 @@ print(len(llist))
 
 llist.remove_value(2)
 llist.reverse()
-print(llist.head.next.prev.data)
+# print(llist.head.next.prev.data)
 print(llist)
 
 # llist = LinkedList()

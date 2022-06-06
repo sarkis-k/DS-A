@@ -19,37 +19,13 @@ class DoublyLinkedList(LinkedList):
 
     def remove_tail(self):
         if self.head:
-            if not self.head.next:
-                self.head = None
+            if self.head == self.tail:
+                self.head = self.tail = None
             else:
-                temp = self.head
-                while temp.next.next:
-                    temp = temp.next
-                lastNode = temp.next
-                temp.next = None
-                lastNode = None
-        # if self.tail:
-        #     temp = self.tail
-        #     temp.prev.next = None
-        #     self.tail = temp.prev
-        #     temp.prev = None
-        #     return temp.data
-        # else:
-        #     raise IndexError("List is empty")
-        # if not self.tail:
-        #     raise IndexError("List is empty")
-        # else:
-        #     self.tail.data = None
-        #     self.tail.prev.next = None
-        #     self.tail.prev = None
-        #     temp = self.tail
-        #
-        #
-        #     temp = self.tail
-        #     self.tail.prev.next = None
-        #     self.tail = temp.prev
-            # temp.prev = None
-            # return temp.data
+                temp = self.tail.prev
+                self.tail.prev.next = None
+                self.tail.prev = None
+                self.tail = temp
 
     def remove_value(self, value):
 
