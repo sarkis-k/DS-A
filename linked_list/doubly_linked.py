@@ -31,6 +31,7 @@ class DoublyLinkedList(LinkedList):
 
         current = self.head
         node_deleted = False
+        
         if current is None:
             node_deleted = False
 
@@ -46,11 +47,20 @@ class DoublyLinkedList(LinkedList):
 
         else:
             while current:
+                print("data" + str(current.data))
                 if current.data == value:
-                    current.prev.next = current.next
-                    current.next.prev = current.prev
+                    print("here")
+                    print(current.data)
+                    current.prev.set_next(current.next)
+                    print("prev next" + str(current.prev.next))
+                    current.next.set_previous(current.prev)
+                    print("next prev" + str(current.next.prev))
+                    current = None
                     node_deleted = True
+                    break
                 current = current.next
+        return node_deleted
+
         # if not self.head:
         #     raise IndexError("List is empty")
         # else:
@@ -124,3 +134,4 @@ class DoublyLinkedList(LinkedList):
             previous = current
             current = next_node
         self.head = previous
+
