@@ -1,22 +1,26 @@
 from binary_search_tree import BST
 
-r = BST(50)
-r.insert_node(r, 30)
-r.insert_node(r, 20)
-r.insert_node(r, 40)
-r.insert_node(r, 70)
-r.insert_node(r, 60)
-r.insert_node(r, 80)
-r.insert_node(r, 90)
+bst = BST()
 
-r.inorder(r)
+bst.insert(50)
+bst.insert(30)
+bst.insert(20)
+bst.insert(40)
+bst.insert(70)
+bst.insert(60)
+bst.insert(80)
+bst.inorder()
+print()
+bst.preorder()
+print()
+bst.postorder()
+print()
+print("height: " + str(bst.find_height()))
+bst.insert(15)
+bst.inorder()
+print()
+print("height: " + str(bst.find_height()))
+bst.delete(20)
+print("height: " + str(bst.find_height()))
 
-found = r.find_node(r, 80)
-print(found.left)
-
-print(r.min_value(r))
-
-r.delete_node(r, 50)
-
-r.inorder(r)
 
