@@ -1,5 +1,5 @@
 def pivot_point_a(arr, first, last):
-    # accenting order
+    # ascending order
     pivot = arr[first]
     left = first + 1
     right = last

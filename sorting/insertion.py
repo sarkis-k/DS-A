@@ -1,5 +1,5 @@
 def insertion_sort_a(arr):
-    # accenting order
+    # ascending order
     for i in range(len(arr)):
         cur_elem = arr[i]
         pos = i

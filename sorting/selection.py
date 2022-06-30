@@ -1,5 +1,5 @@
 def selection_sort_a(arr):
-    # accenting order
+    # ascending order
     for i in range(len(arr)):
         min_val = min(arr[i:])
         min_ind = arr.index(min_val)

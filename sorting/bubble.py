@@ -1,5 +1,5 @@
 def bubble_sort_a(arr):
-    # accenting order
+    # ascending order
     for i in range(len(arr)):
         for j in range(len(arr) - 1):
             if arr[j] > arr[j + 1]:
