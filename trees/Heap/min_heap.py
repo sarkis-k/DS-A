@@ -3,13 +3,13 @@ class MinHeap:
         self.heap_list = [0]
         self.current_size = 0
 
-    def shift_up(self, index):
+    def sift_up(self, index):
         while index // 2 > 0:
             if self.heap_list[index] < self.heap_list[index // 2]:
                 self.heap_list[index], self.heap_list[index // 2] = self.heap_list[index // 2], self.heap_list[index]
             index = index // 2
 
-    def shift_down(self, index):
+    def sift_down(self, index):
         while index * 2 <= self.current_size:
             min_ch = self.min_child(index)
 
